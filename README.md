@@ -1,0 +1,4 @@
+bashrc
+========
+
+bash configuretion file
