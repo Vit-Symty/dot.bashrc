@@ -79,3 +79,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# command completion for Git.
+if [ -r "$HOME/.git-completion.bash" ]; then
+    . ~/.git-completion.bash
+fi
