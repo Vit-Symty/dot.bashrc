@@ -1,0 +1,12 @@
+if [ "$color_prompt" = yes ]; then
+  PS1="\[\033[01;37m\][\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;35m\]\w\[\033[01;37m\]]\[\033[00m\]\$(git_branch_name)\$ "
+else
+  PS1="[\u@\h\:\w]\$(git_branch_name) \$ "
+fi
+
+function git_branch_name {
+  if type "git" > /dev/null 2>&1
+  then
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  fi
+}

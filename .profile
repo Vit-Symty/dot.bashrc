@@ -6,8 +6,7 @@
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
-umask 022
-export LANG=ja_JP.UTF-8 ;
+#umask 022
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -22,15 +21,13 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-if [ -d "$HOME/local/bin" ] ; then
-    PATH="$HOME/local/bin:$PATH"
-fi
+export LANG="ja_JP.UTF-8" ;
 
-# set rvm PATH
-if [ -d "$HOME/.rvm" ] ; then
-  source ${HOME}/.rvm/scripts/rvm
-fi
+# rbenv
+export RBENV_ROOT=/opt/rbenv
+export PATH="$RBENV_ROOT/bin:$PATH"
+eval "$(rbenv init -)"
 
-export EDITOR=vi
-# export TERM="xterm-256color"
+# EDIFOR
+export EDITOR=vim
 
